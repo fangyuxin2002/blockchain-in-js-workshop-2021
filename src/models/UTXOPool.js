@@ -3,19 +3,14 @@ import UTXO from './UTXO.js'
 class UTXOPool {
   constructor(utxos = {}) {}
 
-  addUTXO(publicKey, amount) {}
-
-  clone() {}
-
-  // 处理交易函数
-  handleTransaction() {}
-
-  // 验证交易合法性
+  // 添加交易函数
   /**
-   * 验证余额
-   * 返回 bool
+   * 将交易的信息更新至 UTXOPool 中
    */
-  isValidTransaction() {}
+  addUTXO() {}
+
+  // 将当前 UXTO 的副本克隆
+  clone() {}
 }
 
 export default UTXOPool
