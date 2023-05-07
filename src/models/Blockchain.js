@@ -9,81 +9,65 @@ class Blockchain {
       - 存储区块的映射
   */
 
-  constructor(name) {
+  constructor(name) {//传入区块名字
     this.name = name;
-    this.blockMap = {};
     this.blocks=[]
-
     this.lastBlock=[]
-    this.genesis=""
-  }
-  getLength(array) {
-    let length=0
-    for (let arrayKey in array) {
-      length++
-    }
-    return length
   }
 
 
   addBlock(block){
+    //添加区块:主要是确定最后一位的区块
+    //添加逻辑:新区块加入后,根据新加区块的preHash把前一的区块在lastBlock中删除
       let lastBlock = this.lastBlock[block.previousHash]
       if (!lastBlock){
       this.lastBlock[block.hash]=block
       return
     }
-
-
       this.lastBlock[block.hash]=block
       delete this.lastBlock[block.previousHash]
   }
 
   maxIndex(){
-    let tempArr=this.lastBlock
+    //作用:从lastBlock中找出index最大的区块并返回
     let res=0;
     let resBLock={}
     for (let tempIndex in this.lastBlock){
-      res= this.maxBlock(res,tempIndex)
+      //注:在JS中,Array底层和Java的Array不同,JS底层的Array更像是一个K-V对应的map,在通过索引:0,1,2,3访问的时候其实是Array底层维护了一个length作为K-中的K
+      // ,所以这里不能使用fori循环
+      //for in循环是对Array的Key进行循环,每次取值的时候就直接Array[key]就行了
+      res= this.maxBlock(res,tempIndex)//传入的是key
       resBLock=this.lastBlock[res]
     }
     return resBLock
   }
-  maxBlock(blockAHash,BlockBHash){
+  maxBlock(blockAHash,BlockBHash){//比较出index大的key并返回
     if (!blockAHash){
       return BlockBHash
     }
     let tempArr=this.lastBlock
-    let Aindex = tempArr[blockAHash].index
-    let Bindex=tempArr[BlockBHash].index
-
-    return Aindex >Bindex?blockAHash:BlockBHash
+    return tempArr[blockAHash].index >tempArr[BlockBHash].index?blockAHash:BlockBHash
   }
 
 
 
 
-  longestChain() {
+  longestChain() {//获取最长链
     let longestChain = [];
-    let currentChain = [];
-    let res = this.maxIndex()
-    // console.log(res)
-    let temp=res
+    let res = this.maxIndex()//获取到最长链上的最后一个区块
+    let temp=res//从最长到第一个区块
     let lastIndex=res.index
-    // console.log(res.blockChain.blocks)
     for (let i in res.blockChain.blocks) {//for循环,但不以i作为索引
-      if (!temp){break;}
-
+      if (!temp){break;}//如果temp不存在就返回
       longestChain[lastIndex]=temp
       lastIndex--;
       temp=res.blockChain.blocks[temp.previousHash]
     }
-    // console.log(longestChain);
-    // longestChain[end.hash]=end
-    // longestChain.length=this.getLength(longestChain)
-    longestChain=longestChain.filter((s)=>{//删除空集
+    longestChain=longestChain.filter((s)=>{
+      //删除空集,因为为undefined/null的元素不会进入过滤器
       return s ;
     })
-    return longestChain;
+    return longestChain;//返回
   }
 }
 
