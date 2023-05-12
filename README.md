@@ -11,7 +11,7 @@
 
 ## 代码仓库链接
 
-https://github.com/caosbad/blockchain-in-js-workshop-2021(示例用，请根据自身的仓库替换)
+https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021
 
 
 
@@ -20,7 +20,7 @@ https://github.com/caosbad/blockchain-in-js-workshop-2021(示例用，请根据�
 
 ### 代码 commint 地址
 
-https://github.com/CUITBlockchain/blockchain-in-js-workshop-2021/commit/25f3a0d83a9fff2b4514c5503f470df939d0c2af
+https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/tree/benben-1st
 
 
 ### 代码截图
