@@ -69,24 +69,6 @@ class Blockchain {
     return blockchain
   }
 
-  // // 创建一个新的交易并添加到待处理交易列表中
-  // createTransaction(sender, recipient, amount) {
-  //   const transaction = new Transaction(sender, recipient, amount)
-  //   this.pendingTransactions.push(transaction)
-  // }
-
-  // // 将所有待处理交易打包到一个新的区块中，并添加到区块链中
-  // minePendingTransactions(miningRewardAddress) {
-  //   // 创建一个新的区块
-  //   const block = new Block(Date.now(), this.pendingTransactions, this.getLatestBlock().hash)
-  //   // 添加新的区块到区块链中
-  //   this.addBlock(block)
-  //   // 重置待处理交易列表，并添加挖矿奖励交易
-  //   this.pendingTransactions = [
-  //     new Transaction(null, miningRewardAddress, this.miningReward)
-  //   ]
-  // }
-
   // 获取当前区块链中最新的区块
   getLatestBlock() {
     return this.blockchain.get(this.getLatestHash())
