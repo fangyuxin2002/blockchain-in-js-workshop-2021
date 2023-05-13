@@ -1,4 +1,4 @@
-// 导入 Block 和 Transaction 类
+// 导入 Block 类
 import { times } from 'ramda';
 import Block from './Block.js'
 import SHA256 from  '../../node_modules/crypto-js/sha256.js'
