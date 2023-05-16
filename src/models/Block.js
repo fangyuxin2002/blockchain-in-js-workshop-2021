@@ -47,7 +47,7 @@ class Block {
     return false;
   }
   setNonce(Nonce){
-    // Nonce =Nonce+parseInt(Math.random()*1000+"")
+    Nonce =Nonce+parseInt(Math.random()*1000+"")
 
     // console.log("以前的hash",sha256(this.height,this.previousHash,this.Nonce,DIFFICULTY,this.timestamp).toString(),
     //     "现在的Nonce",sha256(this.height,this.previousHash,temp,DIFFICULTY,this.timestamp).toString())
