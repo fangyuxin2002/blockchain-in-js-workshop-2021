@@ -63,9 +63,9 @@ class Blockchain {
       lastIndex--;
       temp=res.blockChain.blocks[temp.previousHash]
     }
-    longestChain=longestChain.filter((s)=>{
+    longestChain= longestChain.filter( (s)=>{
       //删除空集,因为为undefined/null的元素不会进入过滤器
-      return s ;
+      return s;
     })
     return longestChain;//返回
   }
