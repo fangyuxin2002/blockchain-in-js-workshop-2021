@@ -1,3 +1,8 @@
 export default class UTXO {
-  constructor() {}
+  constructor(input,output,amount) {
+    this.input=input
+    this.output=output
+    this.amount=amount
+
+  }
 }
