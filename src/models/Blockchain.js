@@ -17,7 +17,7 @@ class Blockchain {
 
 
   addBlock(block){
-    this.blocks[block.hash]=block
+
     //添加区块:主要是确定最后一位的区块
     //添加逻辑:新区块加入后,根据新加区块的preHash把前一的区块在lastBlock中删除
     let lastBlock = this.lastBlock[block.previousHash]
@@ -28,7 +28,8 @@ class Blockchain {
     this.lastBlock[block.hash]=block
     delete this.lastBlock[block.previousHash]
   }
-  _addBlock(block){
+  _addBlock(block){//老师添加区块的时候用的方法名字叫做_addBlock，为了兼容前面的代码就直接这样操作了
+    this.blocks[block.hash]=block//将区块添加进定义好的block中
     this.addBlock(block)
   }
 

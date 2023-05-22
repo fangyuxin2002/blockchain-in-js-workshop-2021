@@ -24,11 +24,11 @@ class Block {
     this.timestamp = new Date().toString()
     this.hash=hash.toString()
     this.Nonce=parseInt(Math.random()*1000+"")
-    blockChain.addBlock(this)//将本区块加入到区块链中
-    this.coinbaseBeneficiary=miner
-    if (!index){
+    blockChain._addBlock(this)//将本区块加入到区块链中
+    this.coinbaseBeneficiary=miner//设置创币交易的转账地址
+    if (!index){//如果是创世区块的话，就直接新建一个utxoPool
       this.utxoPool=new UTXOPool()
-    }else {
+    }else {//不是的话就克隆上一区块的utxopool
       this.utxoPool=new UTXOPool(blockChain.blocks[previousHash].utxoPool.clone())
     }
 
