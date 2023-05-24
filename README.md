@@ -37,7 +37,7 @@ https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/tree/benben-1st/
 
 ### 代码 commit 地址
 
-https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/tree/benben-2st/src/tests
+https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/tree/benben-2ed/src/tests
 
 
 ### 代码截图
