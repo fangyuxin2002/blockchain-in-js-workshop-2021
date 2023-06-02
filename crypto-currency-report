@@ -32,7 +32,10 @@ https://github.com/CUITBlockchain/blockchain-in-js-workshop-2021/commit/25f3a0d8
 
 ### 主观与讨论题内容
 
----
+思考：
+hash函数的实现：
+如何添加与删除节点：
+验证函数的实现：
 
 
 ## 第二课代码
@@ -52,7 +55,9 @@ https://github.com/CUITBlockchain/blockchain-in-js-workshop-2021/commit/25f3a0d8
 
 ### 主观与讨论题内容
 
----
+思考问题：
+如果把例子里的字母扩展成字母和数字的形式，该如何实现：
+如何设计能够帮助提高查询效率：
 
 ## 第三课代码
 
@@ -71,7 +76,9 @@ https://github.com/CUITBlockchain/blockchain-in-js-workshop-2021/commit/25f3a0d8
 
 ### 主观与讨论题内容
 
----
+讨论：
+基于字典树，以太坊做了哪些改良，为什么：
+MPT想要解决的核心问题是什么：
 
 
 
