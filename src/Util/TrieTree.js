@@ -17,6 +17,7 @@ class TrieNode {
         }
         node.isEnd = true;
     }
+    //
 
     // 删除字符串
     removeWord(word) {
