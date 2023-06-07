@@ -24,9 +24,7 @@ https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/blob/benben-tree
 
 ### 代码截图
 
-> 将截图上传至网盘，放入链接即可
-
-![](链接)
+链接: https://pan.baidu.com/s/1NnlUPIaGnrU3RRZh9_amAA?pwd=g1sc 提取码: g1sc 
 
 
 ### 主观与讨论题内容
@@ -44,9 +42,7 @@ https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/blob/benben-tree
 
 ### 代码截图
 
-> 将截图上传至网盘，放入链接即可
-
-![](链接)
+链接: https://pan.baidu.com/s/1NnlUPIaGnrU3RRZh9_amAA?pwd=g1sc 提取码: g1sc
 
 
 ### 主观与讨论题内容
@@ -64,10 +60,7 @@ https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/blob/benben-tree
 
 ### 代码截图
 
-> 将截图上传至网盘，放入链接即可
-
-![](链接)
-
+链接: https://pan.baidu.com/s/1NnlUPIaGnrU3RRZh9_amAA?pwd=g1sc 提取码: g1sc
 
 ### 主观与讨论题内容
 
