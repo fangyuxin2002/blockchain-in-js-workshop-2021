@@ -80,7 +80,7 @@ https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/tree/benben-4th
 
 ### 代码截图
 
-> 将截图上传至网盘，放入链接即可
+链接: https://pan.baidu.com/s/1OoAfULy7o4pVmEaNQMfOtQ?pwd=n8wx 提取码: n8wx 
 
 ## 第五课代码
 
