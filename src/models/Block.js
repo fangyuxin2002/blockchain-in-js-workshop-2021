@@ -63,6 +63,13 @@ class Block {
     //     "现在的Nonce",sha256(this.height,this.previousHash,temp,DIFFICULTY,this.timestamp).toString())
     this.Nonce=Nonce
   }
+  addTransaction(Transation){
+    let res = this.utxoPool.handleTransaction(Transation)
+    if (!res) this.utxoPool.addToInvalidPool(Transation)
+  }
+  combinedTransactionsHash(){
+    return this.utxoPool.calculateHash()
+  }
 
 
 

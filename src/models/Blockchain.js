@@ -13,6 +13,7 @@ class Blockchain {
     this.name = name;
     this.blocks=[]
     this.lastBlock=[]
+    this.genesis=null
   }
 
 

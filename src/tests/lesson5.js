@@ -135,7 +135,7 @@ const main = () => {
   log(latestUTXOPool)
 
   let badTrx = new Transaction(miner, receiverPubKey, 100)
-  
+
   // 对比更新交易之后的 hash 数据
   let trxHash = thirdBlock.combinedTransactionsHash().toString()
   thirdBlock.addTransaction(badTrx)
@@ -159,4 +159,7 @@ const main = () => {
   )
 }
 
-main()
+for (let i = 0; i < 10000; i++) {
+  main()
+}
+
