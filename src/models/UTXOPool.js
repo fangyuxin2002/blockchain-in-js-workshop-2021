@@ -1,5 +1,6 @@
 import UTXO from './UTXO.js'
 import transaction from "./Transaction.js";
+import sha256 from "crypto-js/sha256.js";
 
 class UTXOPool {
     constructor(utxos = []) {//老师这里写的原本是对象,但引用的时候还是用的数组来写,为了方便我直接把这里也用成数组了
@@ -36,7 +37,7 @@ class UTXOPool {
      * @param price:校验是否有price的钱
      */
     isValidTransaction(input, price) {
-        return this.utxos[input].amount >= price;
+        return this.utxos[input].amount > price;
     }
 
     /**
@@ -44,12 +45,28 @@ class UTXOPool {
      * @param transaction:交易的对象
      */
     handleTransaction(transaction) {
+        // console.log(transaction)
         if (this.isValidTransaction(transaction.transactionIn, transaction.price)) {//先检查是否有这么多钱
             this.utxos[transaction.transactionIn].amount -= transaction.price//进行转账处理
             if (!this.utxos[transaction.transactionOut]) {
                 this.utxos[transaction.transactionOut] = new UTXO(transaction.transactionOut, transaction.transactionIn, transaction.price)
             } else this.utxos[transaction.transactionOut].amount += transaction.price
+            return true
         }
+        return false
+    }
+    addToInvalidPool(transaction){
+        // console.log(transaction)
+        this.utxos["none"]=new UTXO(transaction.transactionOut, transaction.transactionIn, transaction.price)
+        // console.log(this.utxos["none"])
+    }
+    calculateHash(){
+        let res=""
+        let temp = Object.values(this.utxos)
+        for (let i = 0; i < temp.length; i++) {
+            res =sha256(temp[i].toString()+res).toString()
+        }
+        return res
     }
 }
 
