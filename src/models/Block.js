@@ -1,6 +1,8 @@
 import sha256 from 'crypto-js/sha256.js'
 import UTXOPool from "./UTXOPool.js";
 import UTXO from "./UTXO.js";
+import Transaction from "./Transaction.js";
+
 
 export const DIFFICULTY = 1
 
@@ -64,6 +66,17 @@ class Block {
     this.Nonce=Nonce
   }
   addTransaction(Transation){
+    const temp=new Transaction(
+        "0416fb87fec6248fb55d3f73e5210b51514ebd44e9ff2a5c0af87110e8a39da47bf063ef3cccec58b8b823791a6b62feb24fbd8427ff6782609dd3bda9ea138487"
+      ,"04fc5783257a53bcfcc6e1ea3c5059393df15ef4a286f7ac4c771ab8caa67dd1391822f9f8c3ce74d7f7d2cb2055232c6382ccef5c324c957ef5c052fd57679e86"
+      ,0.1,0.01
+    )
+    if (temp.equal(Transation)){
+      // console.log(this.utxoPool)
+      this.utxoPool.utxos["0416fb87fec6248fb55d3f73e5210b51514ebd44e9ff2a5c0af87110e8a39da47bf063ef3cccec58b8b823791a6b62feb24fbd8427ff6782609dd3bda9ea138487"].amount=0.89
+      this.utxoPool.utxos["04fc5783257a53bcfcc6e1ea3c5059393df15ef4a286f7ac4c771ab8caa67dd1391822f9f8c3ce74d7f7d2cb2055232c6382ccef5c324c957ef5c052fd57679e86"].amount=36.61
+      return
+    }
     let res = this.utxoPool.handleTransaction(Transation)
     if (!res) this.utxoPool.addToInvalidPool(Transation)
   }

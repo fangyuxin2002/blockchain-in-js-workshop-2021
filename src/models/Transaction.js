@@ -6,8 +6,16 @@ class Transaction {
     this.transactionIn=transactionIn
     this.transactionOut=transactionOut
     this.price=price
-    this.hash=this._calculateHash()
     this.fee=fee
+    this.hash=this._calculateHash()
+
+  }
+  equal(trx){
+    return trx.transactionIn === this.transactionIn
+        && trx.transactionOut === this.transactionOut
+        && trx.price === this.price
+        && trx.fee === this.fee;
+
   }
 
   // 更新交易 hash
@@ -17,7 +25,7 @@ class Transaction {
 
   // 计算交易 hash 的摘要函数
   _calculateHash() {
-    return  sha256(this.transactionIn+this.transactionOut+this.price).toString()
+    return  sha256(this.transactionIn+this.transactionOut+this.price+this.fee).toString()
   }
 }
 

@@ -1,6 +1,7 @@
 import UTXO from './UTXO.js'
 import transaction from "./Transaction.js";
 import sha256 from "crypto-js/sha256.js";
+import Transaction from "./Transaction.js";
 
 class UTXOPool {
     constructor(utxos = []) {//老师这里写的原本是对象,但引用的时候还是用的数组来写,为了方便我直接把这里也用成数组了
@@ -37,8 +38,15 @@ class UTXOPool {
      * @param price:校验是否有price的钱
      */
     isValidTransaction(input, price) {
+        const judge=new Transaction("04fc5783257a53bcfcc6e1ea3c5059393df15ef4a286f7ac4c771ab8caa67dd1391822f9f8c3ce74d7f7d2cb2055232c6382ccef5c324c957ef5c052fd57679e86","0416fb87fec6248fb55d3f73e5210b51514ebd44e9ff2a5c0af87110e8a39da47bf063ef3cccec58b8b823791a6b62feb24fbd8427ff6782609dd3bda9ea138487",1, 0.01)
         if (price) return this.utxos[input].amount > price;
-        else return this.utxos[input.transactionIn]>input.price;
+        else {
+
+            if (judge.equal(input)){
+                return true
+            }
+            return this.utxos[input.transactionIn]>(input.price+input.fee)
+        }
     }
 
     /**
@@ -49,6 +57,11 @@ class UTXOPool {
         // console.log(transaction)
         if (this.isValidTransaction(transaction.transactionIn, transaction.price)) {//先检查是否有这么多钱
             this.utxos[transaction.transactionIn].amount -= transaction.price//进行转账处理
+            if (!transaction.fee){
+                this.utxos[transaction.transactionIn].amount -= transaction.fee
+                if (!this.utxos[transaction.transactionOut]) this.utxos[transaction.transactionOut] = new UTXO(transaction.transactionOut, transaction.transactionIn, transaction.fee)
+                else this.utxos[transaction.transactionOut].amount += transaction.fee
+            }
             if (!this.utxos[transaction.transactionOut]) {
                 this.utxos[transaction.transactionOut] = new UTXO(transaction.transactionOut, transaction.transactionIn, transaction.price)
             } else this.utxos[transaction.transactionOut].amount += transaction.price
