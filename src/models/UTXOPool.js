@@ -37,7 +37,8 @@ class UTXOPool {
      * @param price:校验是否有price的钱
      */
     isValidTransaction(input, price) {
-        return this.utxos[input].amount > price;
+        if (price) return this.utxos[input].amount > price;
+        else return this.utxos[input.transactionIn]>input.price;
     }
 
     /**
