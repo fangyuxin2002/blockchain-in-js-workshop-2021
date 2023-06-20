@@ -143,7 +143,7 @@ https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/tree/benben-5th/
 
 ### 代码 commint 地址
 
-https://github.com/CUITBlockchain/blockchain-in-js-workshop-2021/commit/25f3a0d83a9fff2b4514c5503f470df939d0c2af
+https://github.com/fangyuxin2002/blockchain-in-js-workshop-2021/tree/benben-6th/src/models
 
 
 ### 代码截图
